@@ -8,37 +8,37 @@ $product-code-color: rgba(97, 96, 112, 1);
 $label-color: rgba(97, 96, 112, 1);
 
 body {
-  margin: 0;
   font-family: Roboto, sans-serif;
-  font-weight: 500;
   font-size: 12px;
+  font-weight: 500;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-
 .header {
-  background-color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
+
+  background-color: white;
   box-shadow: 0 2px 4px 0 #0000000d;
 
   &__link {
-    height: $length-of-logo;
     width: $length-of-logo;
+    height: $length-of-logo;
   }
 
   &__logo {
     position: relative;
     left: 50px;
-    height: $length-of-logo;
     width: $length-of-logo;
+    height: $length-of-logo;
   }
 
   &__nav-bar {
@@ -67,18 +67,19 @@ body {
   }
 
   &__list-item:last-child {
-    margin-right: 0;
     margin-left: 10px;
+    margin-right: 0;
   }
 
   &__link {
-    text-decoration: none;
-    color: #060b35;
-    text-align: center;
-    height: 60px;
     display: flex;
     align-items: center;
     align-content: space-around;
+    text-align: center;
+    height: 60px;
+    text-decoration: none;
+
+    color: #060b35;
     transition: color 0.3s;
 
     &:hover {
@@ -86,8 +87,8 @@ body {
     }
 
     &--is-active {
-      color: $blue-color;
       position: relative;
+      color: $blue-color;
 
       &::after {
         content: '';
@@ -96,8 +97,8 @@ body {
         margin-top: 56px;
         width: 100%;
         height: 4px;
-        background-color: $blue-color;
         border-radius: 8px;
+        background-color: $blue-color;
         display: block;
       }
     }
@@ -106,40 +107,64 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns:  200px;
-  grid-template-rows: repeat(auto-fill, 200px);
-  gap: 48px 46px;
-  padding: 50px 40px;
+  grid-template-columns: 200px;
+  grid-template-rows: repeat(auto-fill, auto);
+  gap: 46px 48px;
   justify-content: center;
+
+  padding: 50px 40px;
 }
 
-@media(min-width: 488px){
-  .container{
+@media (min-width: 488px) {
+  .container {
     grid-template-columns: repeat(2, 200px);
   }
 }
 
-@media(min-width: 768px){
-  .container{
+@media (min-width: 768px) {
+  .container {
     grid-template-columns: repeat(3, 200px);
   }
 }
 
-@media(min-width: 1024px){
-  .container{
-    grid-template-columns: repeat(4,200px);
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(4, 200px);
   }
 }
 
 .card {
-  box-sizing: border-box;
-  width: 200px;
-  border: 1px solid $border-color;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 200px;
   padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &__desc {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 40px;
+    line-height: 18px;
+    width: 100%;
+    height: 36px;
+
+    color: $desc-color;
+    transition: color 0.3s;
+  }
+
+  &:hover &__desc {
+    color: #34568b;
+  }
 
   &__img {
     width: 160px;
@@ -147,70 +172,61 @@ body {
     margin-top: 32px;
   }
 
-  &__desc {
-    font-family: Roboto, sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    margin-top: 40px;
-    color: $desc-color;
-    width: 100%;
-    height: 36px;
-  }
-
   &__product-code {
-    color: $product-code-color;
     width: 100%;
-    height: 14px;
-    font-weight: 400;
+    color: $product-code-color;
     font-size: 10px;
+    font-weight: 400;
     line-height: 14px;
     align-self: flex-start;
+    height: 14px;
     margin-top: 4px;
   }
 
   &__price-tag {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
     width: 100%;
     margin-top: 24px;
     color: $product-code-color;
   }
 
   &__label {
-    font-weight: 400;
     font-size: 12px;
+    font-weight: 400;
+    color: $label-color;
     line-height: 18px;
     vertical-align: bottom;
-    color: $label-color;
   }
 
   &__amount {
-    color: $desc-color;
-    font-weight: 700;
     font-size: 16px;
+    font-weight: 700;
     line-height: 18px;
+    color: $desc-color;
   }
 
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 40px !important;
-    background-color: $background-color;
+    margin-top: 16px;
     color: $font-color;
+    background-color: $background-color;
     font-family: Roboto, sans-serif;
-    font-weight: 700;
     font-size: 14px;
+    font-weight: 700;
+    text-align: center;
     line-height: 16px;
     letter-spacing: 0;
-    text-align: center;
     text-transform: uppercase;
-    border-radius: 5px;
-    margin-top: 16px;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px;
+
+    transition: all 0.3s;
 
     &:hover {
       color: $background-color;
@@ -221,31 +237,31 @@ body {
 }
 
 .stars {
-  margin-top: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   width: 166px;
   height: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  margin-top: 16px;
 
   &__opinion {
     display: flex;
   }
 
   &__review {
-    font-weight: 400;
     font-size: 10px;
+    font-weight: 400;
     line-height: 14px;
     align-self: flex-end;
   }
 
   &__star {
-    background-image: url('../images/star.svg');
-    height: 16px;
     width: 16px;
-    background-repeat: no-repeat;
+    height: 16px;
     margin: 0 2px;
+    background-repeat: no-repeat;
     background-position: center;
+    background-image: url('../images/star.svg');
   }
 
   &__star:first-child {
